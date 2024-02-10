@@ -1,12 +1,20 @@
 
 <html>
     <head>
-
+        <link rel="stylesheet" href="tagStyles.css">
+        <link rel="stylesheet" href="ClassAndIDStyles.css">
+        <script src="Script/intro.js" defer></script>
+        <script src="Script/UsbPlug.js" defer></script>
     </head>
 
     <body>
-        <p>
-            Hello world!!!
-        </p>
+
+        <audio id="introSfx" src="Assets/WindowsMeStartUp.mp3"></audio>
+
+        <canvas id="canv"></canvas>
+
+        <div class="center">
+            <img onclick="intro(this)" src="Assets/RoseBud.png" alt="">
+        </div>
     </body>
 </html>

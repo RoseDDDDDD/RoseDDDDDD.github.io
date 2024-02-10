@@ -1,0 +1,8 @@
+
+.center
+{
+    transform-origin: top;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
