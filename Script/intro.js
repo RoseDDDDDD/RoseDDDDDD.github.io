@@ -2,7 +2,7 @@ const introMusic = document.getElementById("introSfx");
 const introDuration = 1;
 
 const roseOpeningPath = "Assets/RoseFlowering.gif";
-const roseBreathingPath = "Assets/roseBreathing.gif";
+const roseBreathingPath = "Assets/RoseBreathing.gif";
 
 
 let played = false;
