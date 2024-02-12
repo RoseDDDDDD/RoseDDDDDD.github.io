@@ -171,6 +171,7 @@ function pickUpUsb()
 }
 
 let plugged = false;
+let socket = null;
 let socketRect = null;
 function dropUsb()
 {
@@ -203,8 +204,10 @@ function dropUsb()
                 plugged = true;
                 plugSfx.play();
 
+                socket = sockets[i];
                 targetUsbPos.x = (socketRect.x + socketRect.width*.5);
                 targetUsbPos.y = socketRect.y + socketRect.height*.8;
+                
                 const plugEvent = new CustomEvent("plug",{
                     detail: { elem: sockets[i]},
                     bubbles: true,
@@ -299,7 +302,7 @@ function drawCable()
     bez.p1.x = canv.width + -usbPos.x - canv.width*.2;
     bez.p1.y = canv.height*.8;
 
-    bez.p2.x = -(canv.width*.5 - usbPos.x) + canv.width*.2;
+    bez.p2.x = (usbPos.x - canv.width*.1) + canv.width*.2;
     bez.p2.y = canv.height*.6;
 
     bez.end = usbPos;
@@ -310,6 +313,13 @@ function drawCable()
 
 function drawUsb()
 {
+
+    if (plugged)
+    {
+        socketRect = socket.getBoundingClientRect();
+        targetUsbPos.x = (socketRect.x + socketRect.width*.5);
+        targetUsbPos.y = socketRect.y + socketRect.height*.8;
+    }
     usbPos = usbPos.lerp(targetUsbPos,.1);
     usbRect = usb.getBoundingClientRect();
 
