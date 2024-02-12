@@ -1,4 +1,6 @@
 * {
+    position: relative;
+    z-index: 100;
     /*just some copy pasted code from an online post to stop biliniear filtering from happening*/
     image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
     image-rendering: -moz-crisp-edges;          /* Firefox                        */
@@ -7,6 +9,13 @@
     image-rendering: pixelated;                 /* Universal support since 2021   */
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+    transition: all .1s;
+}
+
+img
+{
+    z-index: 100;
 }
 
 body

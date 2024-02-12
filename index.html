@@ -9,12 +9,19 @@
 
     <body>
 
-        <audio id="introSfx" src="Assets/WindowsMeStartUp.mp3"></audio>
+        <audio id="introSfx" preload="auto" src="Assets/WindowsMeStartUp.mp3"></audio>
+        <audio id="plugSfx" preload="auto" src="Assets/plug.mp3"></audio>
+        <audio id="unPlugSfx" preload="auto" src="Assets/unPlug.mp3"></audio>
 
         <canvas id="canv"></canvas>
 
-        <div class="center">
-            <img onclick="intro(this)" src="Assets/RoseBud.png" alt="">
-        </div>
+        
+        
+        <img id="rose" class="center socket" src="Assets/RoseBud.png" alt="">
+        
+
+        
+        <img draggable="false" id="usb" src="Assets/Usb.png">
+
     </body>
 </html>

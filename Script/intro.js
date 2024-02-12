@@ -1,4 +1,6 @@
+
 const introMusic = document.getElementById("introSfx");
+const roseImg = document.getElementById("rose");
 const introDuration = 1;
 
 const roseOpeningPath = "Assets/RoseFlowering.gif";
@@ -9,19 +11,25 @@ let played = false;
 
 
 
-function intro(img)
+roseImg.addEventListener("plug", function(event)
+{
+    console.log(event);
+    intro(event);
+});
+
+function intro(e)
 {
     if (played) return;
     
     played = true;
     introMusic.play();
-
-    img.src = roseOpeningPath;
+    
+    roseImg.src = roseOpeningPath;
 
     setTimeout(() =>
     {
-        img.src = roseBreathingPath;
-
+        thornSize = 20
+        roseImg.src = roseBreathingPath;
     },5000);
 }
 
