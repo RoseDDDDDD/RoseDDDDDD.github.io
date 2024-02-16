@@ -131,7 +131,7 @@ const usbPickUpDist = 30;
 let holding = false;
 const usb = document.getElementById("usb");
 let usbRect = usb.getBoundingClientRect();
-let usbPos = new Vector2([window.innerWidth * .5, window.innerHeight * .5]);
+let usbPos = new Vector2([window.innerWidth * .5, window.innerHeight]);
 let targetUsbPos = new Vector2([window.innerWidth * .5, window.innerHeight * .5]);
 
 
@@ -159,7 +159,11 @@ function pickUpUsb()
         {
             plugged = false;
             unPlugSfx.play();
+        }else
+        {
+            socket = null;
         }
+
         document.body.style.setProperty("user-select","none");    
         document.body.style.cursor = "grabbing";    
 
@@ -188,6 +192,7 @@ function dropUsb()
         holding = false;
         
         // checking for socket to plug
+        usbRect = usb.getBoundingClientRect();
         const plugPos = new Vector2([usbRect.x + usbRect.width *.5,usbRect.y]);
         const sockets = document.getElementsByClassName("socket");
 
@@ -198,24 +203,22 @@ function dropUsb()
             console.log(plugPos);
             console.log(socketRect);
             // check if the plug is within bounding rect
-            if(socketRect.x < plugPos.x && socketRect.x + socketRect.width > plugPos.x && socketRect.y < plugPos.y && socketRect.y + socketRect.height > plugPos.y)
+            if(socketRect.x < plugPos.x && socketRect.x + socketRect.width > plugPos.x && socketRect.y < plugPos.y && socketRect.y + socketRect.height > plugPos.y && socket != sockets[i])
             {
                 targetThronSize = 20;
                 plugged = true;
                 plugSfx.play();
 
                 socket = sockets[i];
-                targetUsbPos.x = (socketRect.x + socketRect.width*.5);
-                targetUsbPos.y = socketRect.y + socketRect.height*.8;
                 
                 const plugEvent = new CustomEvent("plug",{
-                    detail: { elem: sockets[i]},
+                    detail: { elem: socket},
                     bubbles: true,
                     cancelable: true
                 })
                 console.log(plugEvent);
 
-                sockets[i].dispatchEvent(plugEvent);
+                socket.dispatchEvent(plugEvent);
             }
         }
     }
@@ -223,13 +226,20 @@ function dropUsb()
 
 }
 
-function plugIn(elem)
-{
-
-}
 
 document.onmouseup = dropUsb;
 usb.onmousedown = pickUpUsb;
+
+document.addEventListener("plug", function(event)
+{
+    console.log(event);
+    plugLink = event.detail.elem.getElementsByTagName("a");
+    console.log(plugLink);
+    if (plugLink.length > 0)
+    {
+        plugLink[0].click();
+    }
+});
 
 
 
@@ -302,13 +312,13 @@ function drawCable()
     bez.p1.x = canv.width + -usbPos.x - canv.width*.2;
     bez.p1.y = canv.height*.8;
 
-    bez.p2.x = (usbPos.x - canv.width*.1) + canv.width*.2;
-    bez.p2.y = canv.height*.6;
+    bez.p2.x = usbPos.x + (usbPos.x - canv.width*.5) + canv.width*.1;
+    bez.p2.y = canv.height*.6 + usb.y *.2;
 
     bez.end = usbPos;
 
 
-    bez.draw(20);
+    bez.draw(50);
 }
 
 function drawUsb()
@@ -317,7 +327,7 @@ function drawUsb()
     if (plugged)
     {
         socketRect = socket.getBoundingClientRect();
-        targetUsbPos.x = (socketRect.x + socketRect.width*.5);
+        targetUsbPos.x = (socketRect.x + socketRect.width*.5) - usbRect.width*.25;
         targetUsbPos.y = socketRect.y + socketRect.height*.8;
     }
     usbPos = usbPos.lerp(targetUsbPos,.1);

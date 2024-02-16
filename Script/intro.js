@@ -3,8 +3,8 @@ const introMusic = document.getElementById("introSfx");
 const roseImg = document.getElementById("rose");
 const introDuration = 1;
 
-const roseOpeningPath = "Assets/RoseFlowering.gif";
-const roseBreathingPath = "Assets/RoseBreathing.gif";
+const roseOpeningPath = "Assets/Visual/RoseFlowering.gif";
+const roseBreathingPath = "Assets/Visual/RoseBreathing.gif";
 
 
 let played = false;

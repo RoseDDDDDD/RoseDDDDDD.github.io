@@ -13,38 +13,18 @@
     transition: all .1s;
 }
 
-img
-{
-    z-index: 100;
-}
-
 body
 {
-    background-color: black;
-    color: rgb(255, 191, 191);
     overflow: hidden;
 }
 
-audio
+.foreground
 {
-    display: none;
-}
-
-a
-{
-    color: red;
-}
-a:hover
-{
-    color: rgb(255, 0, 153);
-}
-
-canvas
-{
-    z-index: -1000;
     position: absolute;
-    display: block;
-    width: auto;
-    height: auto;
+    left: -5vw;
+    top: -5vh;
+    width: 105vw;
+    height: 105vh;
+    z-index: 9999;
+    pointer-events: none;
 }
-

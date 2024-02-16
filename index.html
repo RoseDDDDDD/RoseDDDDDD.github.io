@@ -1,27 +1,50 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="tagStyles.css">
-        <link rel="stylesheet" href="ClassAndIDStyles.css">
+        <link rel="stylesheet" href="Styles/noBlur.css">
+        <link rel="stylesheet" href="Styles/MainStyle.css">
         <script src="Script/intro.js" defer></script>
         <script src="Script/UsbPlug.js" defer></script>
     </head>
 
     <body>
 
-        <audio id="introSfx" preload="auto" src="Assets/WindowsMeStartUp.mp3"></audio>
-        <audio id="plugSfx" preload="auto" src="Assets/plug.mp3"></audio>
-        <audio id="unPlugSfx" preload="auto" src="Assets/unPlug.mp3"></audio>
+        <img class="foreground" src="Assets/Visual/LoadBlip.gif">
+
+        <audio id="introSfx" preload="auto" src="Assets/Music/WindowsMeStartUp.mp3"></audio>
+        <audio id="plugSfx" preload="auto" src="Assets/Sfx/plug.mp3"></audio>
+        <audio id="unPlugSfx" preload="auto" src="Assets/Sfx/unPlug.mp3"></audio>
 
         <canvas id="canv"></canvas>
 
         
         
-        <img id="rose" class="center socket" src="Assets/RoseBud.png" alt="">
+        <img id="rose" class="center socket" src="Assets/Visual/RoseBud.png" alt="">
+        
+        <div id="about" class="socket">
+            <a href="Pages/About.html" target="_blank"></a>
+            <img src="Assets/Visual/underConstruction.gif" alt="">
+        </div>
+
+        <div id="portfollio" class="socket">
+            <a href="Pages/Portfollio.html" target="_blank"></a>
+            <img src="Assets/Visual/underConstruction.gif" alt="">
+        </div>
         
 
         
-        <img draggable="false" id="usb" src="Assets/Usb.png">
+        <img draggable="false" id="usb" src="Assets/Visual/Usb.png">
 
     </body>
 </html>
+
+<!-- 
+    what do I want this website to be?
+
+    A piece of the magic I've been feeling when expoloring webrevival sites
+    A place for media analysis,
+    A portfollio piece that I could just whip and and show
+    something a potential employer could look through to get a better sense of my skills
+    
+
+-->

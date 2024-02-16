@@ -1,0 +1,106 @@
+/* tags */
+
+div
+{
+    width: fit-content;
+    height: fit-content;
+}
+
+img
+{
+    height: 15vh;
+    width: auto;   
+}
+
+body
+{
+    background-color: black;
+    color: rgb(255, 191, 191);
+    overflow: hidden;
+}
+
+audio
+{
+    display: none;
+}
+
+a
+{
+    color: red;
+}
+a:hover
+{
+    color: rgb(255, 0, 153);
+}
+
+canvas
+{
+    z-index: -1000;
+    position: absolute;
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+
+/* Ids */
+
+#rose
+{
+    height: 20%;
+}
+
+#about
+{
+    position: absolute;
+    left: 35%;
+    top: 50%;
+}
+
+#portfollio
+{
+    position: absolute;
+    left: 55%;
+    top: 20%;
+}
+
+#usb
+{
+    z-index: 0;
+    pointer-events: all;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    cursor: grab;
+    transition: none;
+}
+
+#usb:active
+{
+    cursor: grabbing;
+}
+
+/* classes */
+
+
+.socket
+{
+    display: block;
+    pointer-events: none;
+}
+
+.socket > a
+{
+    position: absolute;
+    display: none;
+}
+
+
+
+.center
+{
+    transform-origin: top;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
