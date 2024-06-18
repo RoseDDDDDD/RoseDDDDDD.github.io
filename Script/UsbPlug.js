@@ -360,8 +360,8 @@ function drawUsb()
     usbPos = usbPos.lerp(targetUsbPos,.1);
     usbRect = usb.getBoundingClientRect();
 
-    usb.style.left = usbPos.x - usbRect.width*.5;
-    usb.style.top = usbPos.y - usbRect.height*.9;
+    usb.style.left = (usbPos.x - usbRect.width*.5) + "px";
+    usb.style.top = (usbPos.y - usbRect.height*.9) + "px";
 
     drawCable();
     drawThorns(10.5,[bez]);

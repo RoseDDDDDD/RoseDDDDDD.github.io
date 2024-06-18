@@ -48,17 +48,17 @@ canvas
 
 #rose
 {
-    height: 20%;
+    height: 20vh;
 }
 
 #about
 {
     position: absolute;
-    left: 15%;
-    top: 130%;
+    left: 15vw;
+    top: 130vh;
 }
 
-@keyframes aboutAnim{to{left: 35%; top: 50%;}}
+@keyframes aboutAnim{to{left: 35vw; top: 50vh;}}
 
 #about.animated
 {
@@ -68,11 +68,11 @@ canvas
 #portfollio
 {
     position: absolute;
-    left: 80%; 
-    top: -30%;
+    left: 80vw; 
+    top: -30vh;
 }
 
-@keyframes portfollioAnim{to{left: 55%;top: 20%;}}
+@keyframes portfollioAnim{to{left: 55vw;top: 20vh;}}
 
 #portfollio.animated
 {
@@ -83,8 +83,8 @@ canvas
 {
     z-index: 0;
     pointer-events: all;
+    height: 8.5vh;
     width: auto;
-    height: 8.5%;
     position: absolute;
     cursor: grab;
     transition: none;
