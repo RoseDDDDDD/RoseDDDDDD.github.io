@@ -1,0 +1,66 @@
+
+
+@keyframes textPulse
+{
+    0%{
+        text-shadow: 1px 0px 1px var(--tex-Shadow),
+        -1px 0px 2px  var(--tex-Shadow),
+        2px 0px 4px   var(--tex-Shadow),
+        -2px 0px 6px  var(--tex-Shadow), 
+        3px 0px 8px   var(--tex-Shadow), 
+        -3px 0px 16px var(--tex-Shadow);
+    }
+
+    50%{
+        text-shadow: 1px 0px 1px var(--tex-Shadow),
+        -1px 0px 2px var(--tex-Shadow),
+        2px 0px 3px  var(--tex-Shadow),
+        -2px 0px 4px var(--tex-Shadow), 
+        3px 0px 5px  var(--tex-Shadow),   
+        -3px 0px 6px var(--tex-Shadow);
+    }
+
+    100%{
+        text-shadow: 1px 0px 1px var(--tex-Shadow),
+        -1px 0px 2px  var(--tex-Shadow),
+        2px 0px 4px   var(--tex-Shadow),
+        -2px 0px 6px  var(--tex-Shadow), 
+        3px 0px 8px   var(--tex-Shadow), 
+        -3px 0px 16px var(--tex-Shadow);
+    }
+    
+
+}
+
+
+.glowRed
+{
+    --tex-Shadow: rgb(255, 0, 0);
+    color: white;
+    text-shadow: 1px 0px 1px var(--tex-Shadow),
+    -1px 0px 2px var(--tex-Shadow),
+    2px 0px 4px var(--tex-Shadow),
+    -2px 0px 6px var(--tex-Shadow), 
+    3px 0px 8px var(--tex-Shadow), 
+    -3px 0px 16px var(--tex-Shadow);
+
+    animation-name: textPulse;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.glowBlue
+{
+    --tex-Shadow: rgb(55, 0, 255);
+    color: white;
+    text-shadow: 1px 0px 1px var(--tex-Shadow),
+    -1px 0px 2px var(--tex-Shadow),
+    2px 0px 4px var(--tex-Shadow),
+    -2px 0px 6px var(--tex-Shadow), 
+    3px 0px 8px var(--tex-Shadow), 
+    -3px 0px 16px var(--tex-Shadow);
+
+    animation-name: textPulse;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}

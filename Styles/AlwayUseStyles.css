@@ -1,0 +1,94 @@
+
+::-webkit-scrollbar {
+  width:10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0,0); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: purple; 
+}
+
+
+
+* {
+    position: relative;
+    z-index: 100;
+    /*just some copy pasted code from an online post to stop biliniear filtering from happening*/
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+    transition: all .1s;
+}
+
+body
+{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.center
+{
+    transform-origin: top;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.static
+{
+    background-image: url(../Assets/Visual/Gifs/Static.gif);
+    background-size: 40%;
+    background-repeat: repeat;
+    filter: opacity(.08);
+    animation: BGFloat 10s infinite linear;
+}
+
+.foreground
+{
+    position: absolute;
+    left: -5vw;
+    top: -5vh;
+    width: 105vw;
+    height: 105vh;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.background
+{
+    position: absolute;
+    
+    width: 100vw;
+    height: 100vh;
+    z-index: -9999;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+
+@keyframes BGFloat {
+    0% {
+        background-position: 0vw 0vh;
+    }
+
+    100% {
+        background-position: 0vw -100vh;
+    }
+}
