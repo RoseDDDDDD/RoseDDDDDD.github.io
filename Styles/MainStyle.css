@@ -28,6 +28,7 @@ a
 {
     color: red;
 }
+
 a:hover
 {
     color: rgb(255, 0, 153);
@@ -53,23 +54,37 @@ canvas
 #about
 {
     position: absolute;
-    left: 35%;
-    top: 50%;
+    left: 15%;
+    top: 130%;
+}
+
+@keyframes aboutAnim{to{left: 35%; top: 50%;}}
+
+#about.animated
+{
+    animation: aboutAnim 6s forwards ease-out;
 }
 
 #portfollio
 {
     position: absolute;
-    left: 55%;
-    top: 20%;
+    left: 80%; 
+    top: -30%;
+}
+
+@keyframes portfollioAnim{to{left: 55%;top: 20%;}}
+
+#portfollio.animated
+{
+    animation: portfollioAnim 6.2s forwards ease-out;
 }
 
 #usb
 {
     z-index: 0;
     pointer-events: all;
-    width: fit-content;
-    height: fit-content;
+    width: auto;
+    height: 8.5%;
     position: absolute;
     cursor: grab;
     transition: none;
@@ -87,20 +102,12 @@ canvas
 {
     display: block;
     pointer-events: none;
+    align-content: center;
+    text-align: center;
 }
 
 .socket > a
 {
     position: absolute;
     display: none;
-}
-
-
-
-.center
-{
-    transform-origin: top;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 }

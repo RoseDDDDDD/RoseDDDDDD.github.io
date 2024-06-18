@@ -1,12 +1,95 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../Styles/noBlur.css">
+        <link rel="stylesheet" href="../Styles/AlwayUseStyles.css">
+        <link rel="stylesheet" href="../Styles/FancyFonts.css">
+        <link rel="stylesheet" href="../Styles/About.css">
+        <script src="../Script/JoinPointsWithLine.js" defer></script>
     </head>
 
     <body>
-        <img class="foreground" src="../Assets/Visual/LoadBlip.gif">
+        <img class="foreground" src="../Assets/Visual/Gifs/LoadBlip.gif">
 
-        Press Ctrl + W to close the current tab
-        About section
+        <div class="background">
+            <div class="grid background RotatingGrid1" ></div>
+            <div class="grid background RotatingGrid2" ></div>
+            <div class="grid background RotatingGrid3" ></div>
+        </div>
+
+        
+        <div id="mainWindow">
+
+            <svg id="svg" class="foreground">
+            </svg>
+
+
+            <div class="center">
+                Press Ctrl + W to close the current tab
+                About section
+            </div>
+            <div id="gridBendHolder">
+                <div style="flex-grow: 5;">
+                    <br><br><br><br>
+                    <div class="floatBoxLeft"> making games since 2018
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="Code" style="float: right;"></img>
+                    </div>
+                    <div class="floatBoxLeft"> Debilitatingly high self expectations
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="expectations" style="float: right;"></img>
+                    </div>
+                    <div class="floatBoxLeft"> always curious about games
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="stuff" style="float: right;"></img>
+
+                    </div>
+                </div>
+
+                
+                <div id="gridBend">
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="Code" style="top: 45%; left: 30%;"></img>
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="expectations" style="top: 20%; left: 45%;"></img>
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="stuff" style="top: 75%; left: 50%;" ></img>
+
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="spiders" style="top: 50%; left: 50%;" ></img>
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="bones" style="top: 65%; left: 65%;" ></img>
+                    <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="more bones" style="top: 70%; left: 35%;"></img>
+
+                </div>
+                
+                
+                <div style="flex-grow: 5;">
+                    <br><br><br><br>
+                    <div class="floatBoxRight">
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="spiders" style="float: left;"></img>
+                        Full of spiders weaving wires
+                    </div>
+                    <div class="floatBoxRight">
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="bones" style="float: left;"></img>
+                        Bones
+                    </div>
+                    <div class="floatBoxRight" style="height: fit-content;">
+                        <img src="../Assets/Visual/Pointer.png" class="joint" data-connectId="more bones" style="float: left;"></img>
+                        jack of all trades <br> master of at least coding
+                    </div>
+                </div>
+            </div>
+
+            <img class="gridDiv" src="../Assets/Visual/gridDivider.png" alt="">
+
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br>
+
+            <p class="glowRed"> This text glows! </p>
+
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br>
+
+            
+            <p class="glowBlue"> This text glows! </p>
+
+        </div> 
+
+
     </body>
+
+
+    
 </html>
+

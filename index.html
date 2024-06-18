@@ -1,15 +1,19 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="Styles/noBlur.css">
+        <meta property="og:url" content="https://rosedddddd.github.io">
+        <meta property="og:img" content="Assets/Visual/Gifs/RoseBreathing.gif" >
+
+        <link rel="icon" href="Assets/Visual/Gifs/RoseBreathing.gif">
+        <link rel="stylesheet" href="Styles/AlwayUseStyles.css">
         <link rel="stylesheet" href="Styles/MainStyle.css">
         <script src="Script/intro.js" defer></script>
         <script src="Script/UsbPlug.js" defer></script>
     </head>
 
     <body>
-
-        <img class="foreground" src="Assets/Visual/LoadBlip.gif">
+        <div class="background static"></div>
+        <img class="foreground" src="Assets/Visual/Gifs/LoadBlip.gif">
 
         <audio id="introSfx" preload="auto" src="Assets/Music/WindowsMeStartUp.mp3"></audio>
         <audio id="plugSfx" preload="auto" src="Assets/Sfx/plug.mp3"></audio>
@@ -17,18 +21,21 @@
 
         <canvas id="canv"></canvas>
 
-        
-        
-        <img id="rose" class="center socket" src="Assets/Visual/RoseBud.png" alt="">
+        <div class="center socket">
+            <img id="rose" src="Assets/Visual/RoseBud.png" alt="">
+            <br><br><br>
+        </div>
         
         <div id="about" class="socket">
             <a href="Pages/About.html" target="_blank"></a>
-            <img src="Assets/Visual/underConstruction.gif" alt="">
+            <img src="Assets/Visual/Gifs/AboutIcon.gif" alt="">
+            <p>About</p>
         </div>
 
         <div id="portfollio" class="socket">
             <a href="Pages/Portfollio.html" target="_blank"></a>
-            <img src="Assets/Visual/underConstruction.gif" alt="">
+            <img style="height: 20vh;" src="Assets/Visual/Gifs/Portfollio.gif" alt="">
+            <p>Portfollio</p>
         </div>
         
 

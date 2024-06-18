@@ -4,6 +4,12 @@ function lerp(a = 0, b=1, t=.1)
     return a + (b - a) * t;
 }
 
+function inRect(rect, pos = Vector2)
+{
+    if (rect == null) return false;
+    return rect.x < pos.x && rect.x + rect.width > pos.x && rect.y < pos.y && rect.y + rect.height > pos.y;
+}
+
 class Vector2 {
 
     constructor(components = [0,0])
@@ -143,16 +149,31 @@ document.onmousemove = (e) =>
 
     mousePos.x = e.clientX;
     mousePos.y = e.clientY;
-    
+
+    if (!holding && socketRect && inRect(socketRect,mousePos))
+    {
+        document.body.style.cursor = "grab";
+    }else if (!holding) 
+    {
+        document.body.style.cursor = "auto";
+    }
+
+    console.log(holding)
     if (!holding) return;
 
     targetUsbPos = new Vector2([ e.clientX, e.clientY]);
     targetUsbPos = targetUsbPos.sub(mouseOffset);
+    
 }
 
 
-function pickUpUsb()
+function tryPickUpUsb()
 {
+    const inUsbRect = inRect(usbRect,mousePos);
+    const inSocketRect = inRect(socketRect,mousePos);
+
+    if (!inUsbRect && !inSocketRect) return;
+
     if (!holding)
     {
         if (plugged == true)
@@ -165,11 +186,15 @@ function pickUpUsb()
         }
 
         document.body.style.setProperty("user-select","none");    
-        document.body.style.cursor = "grabbing";    
+        document.body.style.cursor = "grabbing";   
+        usb.style.cursor = "grabbing"; 
 
         usb.setAttribute("draggable","false");
-    
-        mouseOffset = mousePos.sub(targetUsbPos);
+
+        if (inUsbRect)
+        {
+            mouseOffset = mousePos.sub(targetUsbPos);
+        }else mouseOffset = new Vector2([0,-usbRect.height*.5]);
         holding = true;
     }
 }
@@ -184,6 +209,8 @@ function dropUsb()
 
     document.body.style.setProperty("user-select","auto");
     document.body.style.cursor = "auto";    
+    usb.style.cursor = "grab"; 
+
 
     usb.setAttribute("draggable","true");
 
@@ -196,14 +223,12 @@ function dropUsb()
         const plugPos = new Vector2([usbRect.x + usbRect.width *.5,usbRect.y]);
         const sockets = document.getElementsByClassName("socket");
 
+        let foundSocket = false;
         for (let i = 0; i < sockets.length; i++)
         {
             socketRect = sockets[i].getBoundingClientRect();
-
-            console.log(plugPos);
-            console.log(socketRect);
             // check if the plug is within bounding rect
-            if(socketRect.x < plugPos.x && socketRect.x + socketRect.width > plugPos.x && socketRect.y < plugPos.y && socketRect.y + socketRect.height > plugPos.y && socket != sockets[i])
+            if(inRect(socketRect,plugPos) && socket != sockets[i])
             {
                 targetThronSize = 20;
                 plugged = true;
@@ -216,11 +241,13 @@ function dropUsb()
                     bubbles: true,
                     cancelable: true
                 })
-                console.log(plugEvent);
 
+                foundSocket = true;
                 socket.dispatchEvent(plugEvent);
             }
         }
+
+        if (!foundSocket) socket == null;
     }
 
 
@@ -228,7 +255,7 @@ function dropUsb()
 
 
 document.onmouseup = dropUsb;
-usb.onmousedown = pickUpUsb;
+document.onmousedown = tryPickUpUsb;
 
 document.addEventListener("plug", function(event)
 {
@@ -327,7 +354,7 @@ function drawUsb()
     if (plugged)
     {
         socketRect = socket.getBoundingClientRect();
-        targetUsbPos.x = (socketRect.x + socketRect.width*.5) - usbRect.width*.25;
+        targetUsbPos.x = (socketRect.x + socketRect.width*.5);
         targetUsbPos.y = socketRect.y + socketRect.height*.8;
     }
     usbPos = usbPos.lerp(targetUsbPos,.1);

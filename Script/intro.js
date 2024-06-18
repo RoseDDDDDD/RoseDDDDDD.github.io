@@ -3,15 +3,15 @@ const introMusic = document.getElementById("introSfx");
 const roseImg = document.getElementById("rose");
 const introDuration = 1;
 
-const roseOpeningPath = "Assets/Visual/RoseFlowering.gif";
-const roseBreathingPath = "Assets/Visual/RoseBreathing.gif";
+const roseOpeningPath = "Assets/Visual/Gifs/RoseFlowering.gif";
+const roseBreathingPath = "Assets/Visual/Gifs/RoseBreathing.gif";
 
 
 let played = false;
 
 
 
-roseImg.addEventListener("plug", function(event)
+roseImg.parentElement.addEventListener("plug", function(event)
 {
     console.log(event);
     intro(event);
@@ -25,6 +25,8 @@ function intro(e)
     introMusic.play();
     
     roseImg.src = roseOpeningPath;
+    document.getElementById("portfollio").classList.add("animated");
+    document.getElementById("about").classList.add("animated");
 
     setTimeout(() =>
     {
