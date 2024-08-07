@@ -129,6 +129,7 @@ class cubicBezzier
 const plugSfx = document.getElementById("plugSfx");
 const unPlugSfx = document.getElementById("unPlugSfx");
 
+const Iframe = document.getElementById("socketFrame");
 const canv = document.getElementById("canv"); 
 const ctx = canv.getContext("2d");
 
@@ -196,6 +197,7 @@ function tryPickUpUsb()
             mouseOffset = mousePos.sub(targetUsbPos);
         }else mouseOffset = new Vector2([0,-usbRect.height*.5]);
         holding = true;
+        usb.style.zIndex = 100;
     }
 }
 
@@ -244,6 +246,7 @@ function dropUsb()
 
                 foundSocket = true;
                 socket.dispatchEvent(plugEvent);
+                usb.style.zIndex = 0;
             }
         }
 
@@ -262,13 +265,45 @@ document.addEventListener("plug", function(event)
     console.log(event);
     plugLink = event.detail.elem.getElementsByTagName("a");
     console.log(plugLink);
-    if (plugLink.length > 0)
-    {
-        plugLink[0].click();
-    }
+    if (plugLink.length == 0) return;
+
+    if (plugLink[0].target == "_blank")
+        {
+            plugLink[0].click();
+        }
+
+    Iframe.src = plugLink[0].href;
+    Iframe.style.transitionDuration = "3s";
+    Iframe.style.height = "100vh";
+    setTimeout(() => {
+        console.warn(Iframe.contentWindow.document);
+        Iframe.contentWindow.document.addEventListener("keydown", minimizeIframe);
+
+    }, 500);
+
+    if(document.getElementById("socketWires")) document.getElementById("socketWires").style.height = "30vh";
+    if(document.getElementById("socketBackdrop")) document.getElementById("socketBackdrop").style.height = "100vh";
+    document.getElementById("minimizeIframe").style.height = "";
 });
 
+document.getElementById("minimizeIframe").addEventListener("click", minimizeIframe)
 
+function minimizeIframe(e)
+{
+    if(document.getElementById("socketWires")) document.getElementById("socketWires").style.height = "0vh";
+    if(document.getElementById("socketBackdrop")) document.getElementById("socketBackdrop").style.height = "0vh";
+    Iframe.style.transitionDuration = ".5s";
+    Iframe.style.height = "0vh";
+    document.getElementById("minimizeIframe").style.height = "0vh";
+
+
+    setTimeout(() => {
+        if (Iframe.getBoundingClientRect().height > 1) return;
+        console.warn(Iframe.getBoundingClientRect().height);
+        Iframe.src = "";
+
+    }, 3000);
+}
 
 canv.width = window.innerWidth;
 canv.height =  window.innerHeight;

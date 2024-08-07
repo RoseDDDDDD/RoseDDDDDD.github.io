@@ -1,0 +1,239 @@
+
+
+body {
+    background-color: black;
+    color: white;
+    position: relative;
+}
+
+button {
+    position: relative;
+    margin: 2px;
+    color: white;
+    filter: blur(100);
+    transition: all .3s;
+
+}
+
+button:hover
+{
+    filter: blur(0);
+    transform: translate(0px,-10px);
+}
+
+* {
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+    
+    transition: all .3s;
+}
+
+p:hover, span:hover, h1:hover, h2:hover, h3:hover, h4:hover, video:hover, img:hover, button:hover, a:hover {
+    transform: rotate(2deg);
+    filter: brightness(1.2);
+}
+
+a
+{
+    color: rgb(255, 124, 124);
+}
+
+
+
+.center
+{
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+}
+
+
+
+.scaleX
+{
+    width: 200px;
+    height: auto;
+}
+
+.fitX
+{
+    width: 100%;
+    height: auto;
+}
+
+.scaleX.big
+{
+    width: 350px;
+    height: auto;
+}
+
+
+
+
+
+/* #region OS */
+
+div
+{
+    display: block;
+    position: relative;
+}
+
+.folder
+{
+    background-color: rgb(50, 0, 0);
+    color: rgb(255, 255, 255);
+
+    border: 1px solid;
+    border-color: rgb(150, 0, 0);
+
+    padding: 5px;
+    padding-top: 0px;
+
+    text-align: left;
+    padding-top: 0px;
+    width: 700px;
+    min-height: 100px;
+    height: fit-content;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+
+    display: none;
+
+
+    transition: transform .1s;
+}
+
+.folder .folder
+{
+    width: 500px;
+    background-color: rgb(30, 0, 0);
+    height: fit-content;
+}
+
+.folder .folder .folder
+{
+    width: 300px;
+    background-color: rgb(10, 0, 0);
+    height: fit-content;
+}
+
+.folder .folder .folder .folder
+{
+    background-color: rgb(0, 0, 0);
+    width: 200px;
+    height: fit-content;
+}
+
+.handleBar *
+{
+    margin-top: 0px;
+}
+
+.handleBar
+{
+    position: relative;
+    text-align: center;
+
+
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 20px;
+    margin-bottom: 20px;
+
+    transform: translate(0,-15px) scaleX(1.03);
+
+
+    background-image: 
+    linear-gradient(to right, rgb(144 195 197 / 60%), rgb(0 0 255 / 0%) 100%)
+    ,linear-gradient(to bottom, rgb(144 195 197 / 60% ), rgb(0 0 255 / 0%) 60%)
+    ,linear-gradient(to top, rgb(0 0 0 / 40% ), rgb(0 0 255 / 0%) 100%)
+    ,repeating-linear-gradient(45deg,rgb(23, 83, 205) 0px 5px,rgb(87, 111, 206) 5px 10px);
+} 
+
+@keyframes handleBarAmim {
+    0%{
+        background-position: 0px;
+
+    }
+    100%
+    {
+        background-position: 100px;
+    }
+}
+
+.dragable
+{
+    cursor:grab;
+}
+
+.dragable:active
+{
+    cursor:grabbing;
+
+}
+
+.x
+{
+    background-image: url(Images/X.png);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0%;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+    transform: translate(-15%, -30%);
+}
+
+.x:hover
+{
+    filter: brightness(0.8);
+}
+
+.noTextSelection
+{
+    user-select: none;
+}
+
+
+.folderLink.center
+{
+    display: block;
+}
+
+.folderLink
+{
+    color: rgb(255, 124, 124);
+    text-decoration: underline;
+    display: inline;
+}
+
+.folderLink:hover
+{
+    transform: scale(110%) rotate(5deg);
+    cursor: pointer;
+}
+
+.square
+{
+    background-color: brown;
+    color: white;
+    border-radius: 3px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+}
+
+/* #endregion OS */

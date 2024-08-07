@@ -16,6 +16,116 @@
         <div class="background static"></div>
         <img class="foreground" src="Assets/Visual/Gifs/LoadBlip.gif">
 
+        <style>
+            #socketFrame
+            {
+                width: 100vw; 
+                height: 0vh;
+                position:absolute;
+                z-index: 999999999;
+                border: 0px;
+                transition: height 3s;
+            }
+
+            #socketBackdrop
+            {
+                transition: all 1s;
+                background-image:  linear-gradient(0deg, rgba(12, 3, 78, 1) 1%, rgba(43, 62, 137, .5) 25%, rgba(30, 30, 200, 0) 100%), url(Assets/Visual/Gifs/Wires.gif);
+                width: 100vw; 
+                height: 0vh;
+            }
+
+            #soketEffects
+            {
+                z-index: 200;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #socketWires
+            {
+                width: 100vw; 
+                height: 0vh;
+                margin-top: auto;
+                transition: all .5s;
+            }
+
+            #minimizeIframe
+            {
+                background-image: url(Assets/Visual/TornSticker.png);
+                background-repeat: round;
+                background-size: cover;
+                background-origin: content-box;
+                background-color: transparent;
+                display: block;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                width: 5vw; 
+                height: 2.5vh;
+                margin-top: auto;
+                transition: all .5s;
+                z-index: 9999999999;
+                border: 0px;
+                padding: 0px;
+                transform: translatey(-40%);
+                min-width: fit-content;
+                text-align: center;
+                pointer-events: all;
+            }
+            #minimizeIframe:hover
+            {
+                height: 8vh;
+                text-transform:uppercase;
+                overflow: hidden;
+                font-weight: bold;
+                transform: unset;
+            }
+            #minimizeIframe:active
+            {
+                height: 12vh;
+                filter: brightness(2);
+                transition: filter 0s;
+                transform: unset;
+            }
+
+            #minimizerHolder
+            {
+
+                position: absolute; 
+                width: 100vw; 
+                height: 100vh; 
+                z-index: 9999999999; 
+                pointer-events: none;
+            }
+
+            #wiresRadial
+            {
+                -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 50%);
+                mask-image: radial-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 50%);
+                background-image: url(Assets/Visual/Gifs/Wires.gif);
+                position: absolute;
+                width: 200vw;
+                height: 200vw;
+                pointer-events: none;
+                transform: translateY(-35%) translateX(-25%) rotate(35deg);
+                z-index: 200;
+            }
+        </style>
+        <iframe id="socketFrame"></iframe>
+        
+        <div id="minimizerHolder" > 
+            <button id="minimizeIframe" style="height: 0px;">return</button>
+        </div> 
+        <div id="wiresRadial"></div>
+        <div id="soketEffects">
+            <div id="socketBackdrop"></div>
+            <img id="socketWires" src="Assets/Visual/Gifs/ThornyWires.gif">
+        </div>
+        
+        
+
         <audio id="introSfx" preload="auto" src="Assets/Music/WindowsMeStartUp.mp3"></audio>
         <audio id="plugSfx" preload="auto" src="Assets/Sfx/plug.mp3"></audio>
         <audio id="unPlugSfx" preload="auto" src="Assets/Sfx/unPlug.mp3"></audio>
@@ -28,13 +138,13 @@
         </div>
         
         <div id="about" class="socket">
-            <a href="Pages/About.html" target="_blank"></a>
+            <a href="Pages/About.html"></a>
             <img src="Assets/Visual/Gifs/AboutIcon.gif" alt="">
             <p>About</p>
         </div>
 
         <div id="portfollio" class="socket">
-            <a href="Pages/Portfollio.html" target="_blank"></a>
+            <a href="Pages/Portfollio.html"></a>
             <img style="height: 20vh;" src="Assets/Visual/Gifs/Portfollio.gif" alt="">
             <p>Portfollio</p>
         </div>

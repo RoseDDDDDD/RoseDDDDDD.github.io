@@ -48,7 +48,7 @@ canvas
 
 #rose
 {
-    height: 20vh;
+    height: 30vh;
 }
 
 #about
@@ -72,7 +72,7 @@ canvas
     top: -30vh;
 }
 
-@keyframes portfollioAnim{to{left: 55vw;top: 20vh;}}
+@keyframes portfollioAnim{to{left: 60vw;top: 20vh;}}
 
 #portfollio.animated
 {
