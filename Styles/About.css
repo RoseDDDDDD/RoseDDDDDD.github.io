@@ -162,3 +162,23 @@ body
         transform: scale(1, 0.75) skew(0, 1deg);
     }
 }
+
+#credits
+{
+    border: ridge 1vh rgb(0, 237, 0);
+    margin: auto;
+    margin-bottom: 10vh;
+    width: 60%;
+    height: fit-content;
+}
+
+.fitBest
+{
+    width: 100%;
+    height: 20vh;
+}
+.fitBest img
+{
+    height: auto;
+    width: 10vw;
+}

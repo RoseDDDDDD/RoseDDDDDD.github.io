@@ -1,164 +1,227 @@
-
-body
+@font-face {
+    font-family: pixel;
+    src: url("../Assets/Fonts/munro.ttf");
+}
+#searchSpecifications
 {
-    color: white;
-    background-color: black;
-    position: 0px 0px;
+    width: auto;
+    height: 30 vh;
+
+    background-image: linear-gradient(rgba(255, 255, 255,1),rgba(255, 255, 255, 0));
 }
 
-
-
-#mainWindow
+button
 {
-    background-color: black;
-    width: 80vw;
-    height: 93.25vh;
+    color: black;
+    font-size: large;
+    width: fit-content;
+    border-width: 0px;
+    cursor: pointer;
+}
 
+#edgeBlend
+{
+    user-select: none;;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
     
+    background-image: url(../Assets/Visual/Gifs/Wires.gif);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 1) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 1) 100%);
+    transition: all .1s, height 0s;
 
-    border: ridge 1vh rgb(0, 237, 0);
-    margin: auto;
-    padding-left: 5vw;
-    padding-right: 5vw;
-
-    padding-top: 5vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
-#gridBend {
-    width: 20vw;
-    height: 25vw;
-    position: relative;
-    align-items: center;
-    flex-grow: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url(../Assets/Visual/Gifs/PlaceHolder.gif), url(../Assets/Visual/Gifs/gridBend.gif);
-    background-size: 20vw;
-}
-
-#gridBendHolder
+#tagSpace
 {
+    position: inherit;
+    margin: 0px auto 0px auto;
     display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     align-content: center;
     justify-content: center;
+
+    width: 60vw;
+
+    top: 5vh;
+
 }
 
-
-
-.floatBoxLeft, .floatBoxRight
+.tagBox
 {
-    background-color: black;
-    font-size: 2vh;
-    border: .5vh solid rgb(0, 255, 0);
+    user-select: none;
+    display: flex;
+
     width: fit-content;
-    height: 3vh;
-    padding: 10px;
-    position: relative;
+    height: 4vh;
+
+    background: url(../Assets/Visual/bar.png) center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 5vh;
+
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    
 }
 
-.floatBoxRight
+#folderSpace
 {
-    margin-right: auto;
-    margin-top: 5vh;
-    border-radius: 0px 0px 0px 25px;
+    top: 10vh;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: top;
+    height: 80%;
+    gap: 3vw;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.floatBoxLeft
+.folderLink
 {
-    margin-left: auto;
-    margin-bottom: 5vh;
-    border-radius: 0px 25px 0px 0px;
+    user-select: none;
+    height: fit-content;
+    border-radius: 20%;
+    width: auto;
 }
 
-.grid
+.folder
+{
+    z-index: 1000;
+}
+
+.tag
+{
+    border-radius: 1vw;
+    filter: brightness(90%);
+    width: fit-content;
+}
+
+.tag:hover
+{
+    filter: brightness(100%);
+}
+
+.selectedTag
+{
+    filter: brightness(150%);
+    margin: 0px 20px 0px 20px;
+    transform: scale(1.1);
+}
+
+.selectedTag:hover
+{
+    filter: brightness(175%);
+    margin: 0px 20px 0px 20px;
+    transform: scale(1.15) rotate(-3deg);
+}
+
+
+
+
+.roblox
+{
+    font-weight: bold;
+    -webkit-text-stroke: .5px black;
+    border-radius: 1px;
+    color: white;
+    background-color: red;
+    border: 2px solid white;
+}
+
+.roblox::before
 {
     position: absolute;
-    height: 200vh;
-    width: 100vw;
-    background-image: url(../Assets/Visual/grid.png);
-    background-repeat: repeat;
-    transform-origin: center;    
+    content: url(../Assets/Visual/Guest.png);
+    transform-origin: top;
+    transform: translate(-50%, -10%) scale(.12) rotate(6deg) scaleX(-1);
+    z-index: -1;
 }
 
-.joint
+.roblox::after
 {
-    animation: jointSpin 30s linear infinite;
-    width: 3vh;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-
-
-
-#gridBend .joint {
     position: absolute;
-    width: 2.5vh;
+    content: url(../Assets/Visual/Tix.webp);
+    transform-origin: top;
+    transform: translate(-50%, -7%) scale(.12) rotate(-6deg);
+    
 }
 
-
-.gridDiv
+#edgeBlend.roblox
 {
-    width: 100%;
-    height: auto;
-    transform: scale(1,.75);
-    filter: brightness(.5);
-    animation: sheerDivider 5s ease-in-out alternate infinite;
+    border: 0px;
+    background: transparent url("../Assets/Visual/RedHouse.png") 25%;
 }
 
-.RotatingGrid1
+.college
 {
-    background-size: 10% 10%;
-    animation: gridSpin 30s linear infinite;
-    filter: brightness(.5);
+    background: linear-gradient(45deg,rgb(241, 200, 31),rgb(255, 0, 0));
+    font-family: pixel;
 }
 
-.RotatingGrid2
+#edgeBlend.college
 {
-    background-size: 40% 40%;
-    filter: brightness(.7);
-    animation: gridSpin 35s linear infinite;
+    background: url("../Assets/Visual/Gifs/Landscape\ of\ warmth.gif");
+    background-size: 50% 100%;
 }
 
-.RotatingGrid3
+.university
 {
-    animation: gridSpin 40s linear infinite;
+    background-image: url(https://3dmodels.download/storage/2022.09/05a08d349a05dcb8b17e3550b38da608.jpg);
+    background-size: cover;
+    border: 2px white;
+    color: red;
 }
 
-@keyframes gridSpin
+#edgeBlend.university
 {
-    0%{
-        transform: translateY(-50vh) scale(2) rotate(0deg);
+    border: 0px;
+    background: url("../Assets/Visual/OutTheWindow.webp") ;
+    background-size: 25% 100%;
+}
+
+.programming
+{
+    color: white;
+    background: url(../Assets/Visual/CodeScroll.webp);
+    background-size: 100% 1500%;
+
+    animation: codeScroll infinite 480s;
+}
+
+#edgeBlend.programming
+{
+    background: url(../Assets/Visual/CodeScroll.webp);
+    background-size: 25% 1000%;
+    filter: contrast(1.2);
+}
+
+@keyframes codeScroll
+{
+    0% {
+        background-position: 0% 0%;
     }
 
     100% {
-        transform:  translateY(-50vh) scale(2) rotate(360deg);
+        background-position: 0% 1500%;
     }
 }
 
-
-@keyframes jointSpin
+.audio
 {
-    0%{
-        transform: scale(1.5) rotate(0deg);
-    }
-
-    100% {
-        transform: scale(1.5) rotate(360deg);
-    }
+    background: linear-gradient(#20ABE4 0%,#F9FF00 100%);;
 }
 
-@keyframes sheerDivider
+#edgeBlend.audio
 {
-    0%{
-        transform: scale(1, 0.75) skew(0, -1deg);
-    }
-
-    100% {
-        transform: scale(1, 0.75) skew(0, 1deg);
-    }
+    background: url(../Assets/Visual/Gifs/AucusticSea.webp);
+    background-size: 33.5% 100%;
 }

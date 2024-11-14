@@ -213,6 +213,12 @@ div
     display: block;
 }
 
+.folderLink img
+{
+    height: auto;
+    width: 10vw;
+}
+
 .folderLink
 {
     color: rgb(255, 124, 124);

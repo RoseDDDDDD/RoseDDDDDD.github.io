@@ -1,87 +1,4 @@
-
-function lerp(a = 0, b=1, t=.1)
-{
-    return a + (b - a) * t;
-}
-
-function inRect(rect, pos = Vector2)
-{
-    if (rect == null) return false;
-    return rect.x < pos.x && rect.x + rect.width > pos.x && rect.y < pos.y && rect.y + rect.height > pos.y;
-}
-
-class Vector2 {
-
-    constructor(components = [0,0])
-    {
-        this.components = components;
-    }
-
-    get x() {
-        return this.components[0];
-    }
-    set x(val = 0) {
-        this.components[0] = val;
-    }
-
-    get y() {
-        return this.components[1];
-    }
-    set y(val = 0) {
-        this.components[1] = val;
-    }
-
-
-
-    get magnitude() {
-        return Math.sqrt(this.x *this.x + this.y * this.y) ;
-    }
-
-    get normalized()
-    {
-        let mag = this.magnitude;
-        return(new Vector2([this.x/mag, this.y/mag]));
-    }
-
-    get perpendicular()
-    {
-        return new Vector2([this.y, -this.x]);
-    }
-
-    get inverse()
-    {
-        return new Vector2([-this.x, -this.y]);
-    }
-
-    distance(other = new Vector2())
-    {
-        console.log(this);
-        console.log(other);
-        console.log(this.sub(other).magnitude);
-        return new Vector2([this.x - other.x, this.y - other.y]).magnitude;
-    }
-
-    mult(scaler = 1)
-    {
-        return new Vector2([this.x*scaler, this.y*scaler]);
-    }
-
-    add(other = new Vector2())
-    {
-        return new Vector2([this.x + other.x, this.y + other.y]);
-    }
-
-    sub(other = new Vector2())
-    {
-        return new Vector2([this.x - other.x, this.y - other.y]);
-    }
-
-    lerp(other = new Vector2(),t)
-    {
-        return new Vector2( [ this.x + (other.x - this.x) * t, this.y + (other.y - this.y) * t ] );
-    }
-
-}
+import {Vector2, lerp, inRect} from "./Modular.js";
 
 class cubicBezzier
 {
@@ -143,8 +60,8 @@ let targetUsbPos = new Vector2([window.innerWidth * .5, window.innerHeight * .5]
 
 
 
-mouseOffset = new Vector2([0,0]);
-mousePos = new Vector2([0,0]);
+let mouseOffset = new Vector2([0,0]);
+let mousePos = new Vector2([0,0]);
 document.onmousemove = (e) =>
 {
 
@@ -257,13 +174,13 @@ function dropUsb()
 }
 
 
-document.onmouseup = dropUsb;
-document.onmousedown = tryPickUpUsb;
+document.onmouseup = (e) => {if (e.button == 0)dropUsb()};
+document.onmousedown = (e) => {if (e.button == 0)tryPickUpUsb()};
 
 document.addEventListener("plug", function(event)
 {
     console.log(event);
-    plugLink = event.detail.elem.getElementsByTagName("a");
+    let plugLink = event.detail.elem.getElementsByTagName("a");
     console.log(plugLink);
     if (plugLink.length == 0) return;
 
@@ -310,8 +227,6 @@ canv.height =  window.innerHeight;
 
 
 
-debugCVec = new Vector2([100,100]);
-console.log(debugCVec.magnitude); // returns 0
 
 let targetThronSize = 0;
 let thornSize = 0;

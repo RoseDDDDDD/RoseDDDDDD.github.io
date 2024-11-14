@@ -65,10 +65,20 @@
     animation-iteration-count: infinite;
 }
 
-
-
 .stary
 {
     background-image: url("../Assets/Visual/Gifs/starstwinkle.gif");
     background-repeat: repeat;
+}
+
+
+.fitBest 
+{
+    position: relative;
+}
+.fitBest a
+{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
 }
