@@ -433,7 +433,6 @@ var elementsThatClose = document.getElementsByClassName('x');
 // Attach the event listener to each element
 for (var i = 0; i < elementsThatClose.length; i++) {
     elementsThatClose[i].addEventListener('mousedown', function() {
-
         DissableFolder(this);
         PlaySFX(clickSFXID);   
     });
@@ -454,9 +453,11 @@ for (var i = 0; i < elementsThatOpen.length; i++) {
     let linkedFolderElem = FindNextSiblingOfClass(elementsThatOpen[i],"folder");
 
     console.log(linkedFolderElem);
-    elementsThatOpen[i].addEventListener('mousedown', function() {
+    elementsThatOpen[i].addEventListener('click', (event) => {
 
-        ToggleFolder(this, linkedFolderElem);
+        if (! ("buttons" in event)) return;
+
+        ToggleFolder(event.target, linkedFolderElem);
         PlaySFX(clickSFXID);   
     });
 

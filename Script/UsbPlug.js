@@ -194,7 +194,12 @@ document.addEventListener("plug", function(event)
     Iframe.style.height = "100vh";
     setTimeout(() => {
         console.warn(Iframe.contentWindow.document);
-        Iframe.contentWindow.document.addEventListener("keydown", minimizeIframe);
+        Iframe.contentWindow.document.addEventListener("keydown", (e) => {
+            if (e.code == 'KeyW') minimizeIframe();
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.code == 'KeyW' && plugged) minimizeIframe();
+        });
 
     }, 500);
 
